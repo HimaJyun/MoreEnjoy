@@ -1,0 +1,4 @@
+NoVoid:
+  enable: true
+  exclude:
+    - "world_the_end"

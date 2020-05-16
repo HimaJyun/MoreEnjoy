@@ -1,0 +1,7 @@
+main: "jp.jyn.moreenjoy.MoreEnjoy"
+name: "MoreEnjoy"
+version: "${project.version}"
+website: "${parent.url}"
+author: "HimaJyun( https://jyn.jp/ )"
+description: "${project.description}"
+api-version: "${spigot.api-version}"

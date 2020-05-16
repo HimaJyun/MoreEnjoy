@@ -1,0 +1,13 @@
+main: "jp.jyn.moreenjoy.novoid.Main"
+name: "NoVoid"
+version: "${project.version}"
+website: "${parent.url}"
+author: "HimaJyun( https://jyn.jp/ )"
+description: "${project.description}"
+api-version: "${spigot.api-version}"
+
+commands:
+  moreenjoy-novoid:
+    description: "reload config."
+    usage: "/<command> reload"
+    permission: "moreenjoy.novoid.reload"
