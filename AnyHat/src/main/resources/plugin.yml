@@ -1,5 +1,5 @@
-main: "jp.jyn.moreenjoy.MoreEnjoy"
-name: "MoreEnjoy"
+main: "jp.jyn.moreenjoy.anyhat.Main"
+name: "AnyHat"
 version: "${project.version}"
 website: "${project.parent.url}"
 author: "HimaJyun( https://jyn.jp/ )"
@@ -8,8 +8,8 @@ api-version: "${spigot.api-version}"
 
 commands:
   hat:
-    description: "Wear everything on your head."
-    usage: "/<command>"
+    description: "${project.description}"
+    usage: "/<command> [reload]"
     aliases: ["moreenjoy-anyhat"]
 
 permissions:
@@ -17,7 +17,7 @@ permissions:
     default: false
     children:
       moreenjoy.anyhat.hat: true
-  # AnyHat
+      moreenjoy.anyhat.reload: true
   moreenjoy.hat:
     default: false
     children:
@@ -26,6 +26,10 @@ permissions:
     default: false
     children:
       moreenjoy.anyhat.hat: true
+      moreenjoy.anyhat.reload: true
   moreenjoy.anyhat.hat:
     description: "Allow use of /hat command."
     default: true
+  moreenjoy.anyhat.reload:
+    description: "Allow use of /hat reload command."
+    default: op

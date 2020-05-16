@@ -1,7 +1,7 @@
 main: "jp.jyn.moreenjoy.novoid.Main"
 name: "NoVoid"
 version: "${project.version}"
-website: "${parent.url}"
+website: "${project.parent.url}"
 author: "HimaJyun( https://jyn.jp/ )"
 description: "${project.description}"
 api-version: "${spigot.api-version}"

@@ -15,12 +15,17 @@
         <dependency>
             <groupId>jp.jyn</groupId>
             <artifactId>NoVoid</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>AnyHat</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>${parent.artifactId}-${project.version}</finalName>
+        <finalName>${project.parent.artifactId}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

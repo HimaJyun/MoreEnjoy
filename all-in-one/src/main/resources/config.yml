@@ -1,3 +1,6 @@
+AnyHat:
+  enable: true
+
 NoVoid:
   enable: true
   exclude:
