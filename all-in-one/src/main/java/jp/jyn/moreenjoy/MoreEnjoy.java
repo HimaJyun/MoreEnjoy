@@ -2,6 +2,7 @@ package jp.jyn.moreenjoy;
 
 import jp.jyn.moreenjoy.anyhat.AnyHat;
 import jp.jyn.moreenjoy.novoid.NoVoid;
+import jp.jyn.moreenjoy.ridenow.RideNow;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -36,6 +37,12 @@ public class MoreEnjoy extends JavaPlugin {
             NoVoid instance = NoVoid.onEnable(this, getSection("NoVoid"));
             destructor.add(instance::onDisable);
         }
+
+        if (config.getBoolean("RideNow.enable")) {
+            getLogger().info("Enabling RideNow");
+            RideNow instance = RideNow.onEnable(this, getCommand("boat"), getCommand("minecart"));
+            destructor.add(instance::onDisable);
+        }
     }
 
     @Override
@@ -47,6 +54,7 @@ public class MoreEnjoy extends JavaPlugin {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        // TODO: リロードコマンド
         sender.sendMessage("[MoreEnjoy] " + ChatColor.RED + "This feature is currently unavailable!");
         return true;
     }

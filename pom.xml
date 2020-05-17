@@ -21,6 +21,7 @@
         <module>all-in-one</module>
         <module>NoVoid</module>
         <module>AnyHat</module>
+        <module>RideNow</module>
     </modules>
 
     <developers>

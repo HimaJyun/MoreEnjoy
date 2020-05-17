@@ -22,6 +22,11 @@
             <artifactId>AnyHat</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>RideNow</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

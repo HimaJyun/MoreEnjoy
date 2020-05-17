@@ -1,5 +1,5 @@
-main: "jp.jyn.moreenjoy.MoreEnjoy"
-name: "MoreEnjoy"
+main: "jp.jyn.moreenjoy.ridenow.Main"
+name: "RideNow"
 version: "${project.version}"
 website: "${project.parent.url}"
 author: "HimaJyun( https://jyn.jp/ )"
@@ -7,10 +7,6 @@ description: "${project.description}"
 api-version: "${spigot.api-version}"
 
 commands:
-  hat:
-    description: "Wear everything on your head."
-    usage: "/<command>"
-    aliases: ["moreenjoy-anyhat"]
   boat:
     description: "Ride boat."
     usage: "/<command>"
@@ -22,22 +18,8 @@ permissions:
   moreenjoy.*:
     default: false
     children:
-      moreenjoy.anyhat.hat: true
       moreenjoy.ridenow.minecart: true
       moreenjoy.ridenow.boat: true
-  # AnyHat
-  moreenjoy.hat:
-    default: false
-    children:
-      moreenjoy.anyhat.hat: true
-  moreenjoy.anyhat.*:
-    default: false
-    children:
-      moreenjoy.anyhat.hat: true
-  moreenjoy.anyhat.hat:
-    description: "Allow use of /hat command."
-    default: true
-  # RideNow
   moreenjoy.minecart:
     default: false
     children:
