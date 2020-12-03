@@ -14,23 +14,19 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Set;
 
 public class NoVoid implements Listener {
     private final Set<String> exclude = new HashSet<>();
 
-    private NoVoid(Collection<String> exclude) {
-        for (String s : exclude) {
-            this.exclude.add(s.toLowerCase(Locale.ENGLISH));
-        }
+    private NoVoid(ConfigurationSection config) {
+        exclude.addAll(config.getStringList("exclude"));
     }
 
     public static NoVoid onEnable(Plugin plugin, ConfigurationSection config) {
-        NoVoid instance = new NoVoid(config.getStringList("exclude"));
-        Bukkit.getServer().getPluginManager().registerEvents(instance, plugin);
+        NoVoid instance = new NoVoid(config);
+        Bukkit.getPluginManager().registerEvents(instance, plugin);
         return instance;
     }
 
@@ -50,7 +46,7 @@ public class NoVoid implements Listener {
         World world = player.getWorld();
 
         // exclude check
-        if (exclude.contains(world.getName().toLowerCase(Locale.ENGLISH))) {
+        if (exclude.contains(world.getName())) {
             return;
         }
 

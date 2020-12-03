@@ -10,7 +10,7 @@ commands:
   hat:
     description: "Wear everything on your head."
     usage: "/<command>"
-    aliases: ["moreenjoy-anyhat"]
+    aliases: [ "moreenjoy-anyhat" ]
   boat:
     description: "Ride boat."
     usage: "/<command>"
@@ -25,6 +25,8 @@ permissions:
       moreenjoy.anyhat.hat: true
       moreenjoy.ridenow.minecart: true
       moreenjoy.ridenow.boat: true
+      moreenjoy.immutablespawner.allow: true
+      moreenjoy.byebyewither.dragon: true
   # AnyHat
   moreenjoy.hat:
     default: false
@@ -55,3 +57,9 @@ permissions:
     default: true
   moreenjoy.ridenow.boat:
     default: true
+  # ImmutableSpawner
+  moreenjoy.immutablespawner.allow:
+    default: op
+  # ByeByeWither
+  moreenjoy.byebyewither.dragon:
+    default: op

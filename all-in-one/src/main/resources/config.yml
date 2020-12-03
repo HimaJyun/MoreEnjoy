@@ -8,3 +8,23 @@ NoVoid:
 
 RideNow:
   enable: true
+
+InfinityFirework:
+  enable: true
+
+ImmutableSpawner:
+  enable: true
+
+CrystalGuard:
+  enable: true
+  damage:
+    - "world_the_end"
+  break: [ ]
+
+ByeByeWither:
+  enable: true
+  wither:
+    - "world_nether"
+    - "world_the_end"
+  dragon:
+    - "world_the_end"

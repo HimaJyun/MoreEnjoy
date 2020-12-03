@@ -13,8 +13,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <spigot.version>1.15.2-R0.1-SNAPSHOT</spigot.version>
-        <spigot.api-version>1.15</spigot.api-version>
+        <spigot.version>1.16.4-R0.1-SNAPSHOT</spigot.version>
+        <spigot.api-version>1.16</spigot.api-version>
     </properties>
 
     <modules>
@@ -22,6 +22,10 @@
         <module>NoVoid</module>
         <module>AnyHat</module>
         <module>RideNow</module>
+        <module>InfinityFirework</module>
+        <module>ImmutableSpawner</module>
+        <module>CrystalGuard</module>
+        <module>ByeByeWither</module>
     </modules>
 
     <developers>

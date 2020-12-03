@@ -1,19 +1,15 @@
-main: "jp.jyn.moreenjoy.novoid.Main"
-name: "NoVoid"
+main: "jp.jyn.moreenjoy.immutablespawner.Main"
+name: "ImmutableSpawner"
 version: "${project.version}"
 website: "${project.parent.url}"
 author: "HimaJyun( https://jyn.jp/ )"
 description: "${project.description}"
 api-version: "${spigot.api-version}"
 
-commands:
-  moreenjoy-novoid:
-    description: "reload config."
-    usage: "/<command> reload"
-    permission: "moreenjoy.novoid.reload"
-
 permissions:
   moreenjoy.*:
     default: false
     children:
-      moreenjoy.noboid.reload: true
+      moreenjoy.immutablespawner.allow: true
+  moreenjoy.immutablespawner.allow:
+    default: op

@@ -10,7 +10,7 @@ commands:
   hat:
     description: "${project.description}"
     usage: "/<command> [reload]"
-    aliases: ["moreenjoy-anyhat"]
+    aliases: [ "moreenjoy-anyhat" ]
 
 permissions:
   moreenjoy.*:

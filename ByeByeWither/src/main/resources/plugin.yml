@@ -1,0 +1,24 @@
+main: "jp.jyn.moreenjoy.byebyewither.Main"
+name: "ByeByeWither"
+version: "${project.version}"
+website: "${project.parent.url}"
+author: "HimaJyun( https://jyn.jp/ )"
+description: "${project.description}"
+api-version: "${spigot.api-version}"
+
+commands:
+  moreenjoy-byebyewither:
+    description: "reload config."
+    usage: "/<command> reload"
+    permission: "moreenjoy.byebyewither.reload"
+
+permissions:
+  moreenjoy.*:
+    default: false
+    children:
+      moreenjoy.byebyewither.dragon: true
+      moreenjoy.byebyewither.reload: true
+  moreenjoy.byebyewither.dragon:
+    default: op
+  moreenjoy.byebyewither.reload:
+    default: op

@@ -27,6 +27,26 @@
             <artifactId>RideNow</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>InfinityFirework</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>ImmutableSpawner</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>CrystalGuard</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>ByeByeWither</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

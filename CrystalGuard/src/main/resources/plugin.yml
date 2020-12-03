@@ -1,5 +1,5 @@
-main: "jp.jyn.moreenjoy.novoid.Main"
-name: "NoVoid"
+main: "jp.jyn.moreenjoy.crystalguard.Main"
+name: "CrystalGuard"
 version: "${project.version}"
 website: "${project.parent.url}"
 author: "HimaJyun( https://jyn.jp/ )"
@@ -7,13 +7,13 @@ description: "${project.description}"
 api-version: "${spigot.api-version}"
 
 commands:
-  moreenjoy-novoid:
+  moreenjoy-crystalguard:
     description: "reload config."
     usage: "/<command> reload"
-    permission: "moreenjoy.novoid.reload"
+    permission: "moreenjoy.crystalguard.reload"
 
 permissions:
   moreenjoy.*:
     default: false
     children:
-      moreenjoy.noboid.reload: true
+      moreenjoy.crystalguard.reload: true

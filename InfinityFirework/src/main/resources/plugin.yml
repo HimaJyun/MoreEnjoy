@@ -1,0 +1,7 @@
+main: "jp.jyn.moreenjoy.infinityfirework.Main"
+name: "InfinityFirework"
+version: "${project.version}"
+website: "${project.parent.url}"
+author: "HimaJyun( https://jyn.jp/ )"
+description: "${project.description}"
+api-version: "${spigot.api-version}"

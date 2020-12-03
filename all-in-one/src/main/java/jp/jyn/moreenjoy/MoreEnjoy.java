@@ -1,6 +1,10 @@
 package jp.jyn.moreenjoy;
 
 import jp.jyn.moreenjoy.anyhat.AnyHat;
+import jp.jyn.moreenjoy.byebyewither.ByeByeWither;
+import jp.jyn.moreenjoy.crystalguard.CrystalGuard;
+import jp.jyn.moreenjoy.immutablespawner.ImmutableSpawner;
+import jp.jyn.moreenjoy.infinityfirework.InfinityFirework;
 import jp.jyn.moreenjoy.novoid.NoVoid;
 import jp.jyn.moreenjoy.ridenow.RideNow;
 import org.bukkit.ChatColor;
@@ -41,6 +45,30 @@ public class MoreEnjoy extends JavaPlugin {
         if (config.getBoolean("RideNow.enable")) {
             getLogger().info("Enabling RideNow");
             RideNow instance = RideNow.onEnable(this, getCommand("boat"), getCommand("minecart"));
+            destructor.add(instance::onDisable);
+        }
+
+        if (config.getBoolean("InfinityFirework.enable")) {
+            getLogger().info("Enabling InfinityFirework");
+            InfinityFirework instance = InfinityFirework.onEnable(this);
+            destructor.add(instance::onDisable);
+        }
+
+        if (config.getBoolean("ImmutableSpawner.enable")) {
+            getLogger().info("Enabling ImmutableSpawner");
+            ImmutableSpawner instance = ImmutableSpawner.onEnable(this);
+            destructor.add(instance::onDisable);
+        }
+
+        if (config.getBoolean("CrystalGuard.enable")) {
+            getLogger().info("Enabling CrystalGuard");
+            CrystalGuard instance = CrystalGuard.onEnable(this, getSection("CrystalGuard"));
+            destructor.add(instance::onDisable);
+        }
+
+        if (config.getBoolean("ByeByeWither.enable")) {
+            getLogger().info("Enabling ByeByeWither");
+            ByeByeWither instance = ByeByeWither.onEnable(this, getSection("ByeByeWither"));
             destructor.add(instance::onDisable);
         }
     }

@@ -1,0 +1,5 @@
+wither:
+  - "world_nether"
+  - "world_the_end"
+dragon:
+  - "world_the_end"
