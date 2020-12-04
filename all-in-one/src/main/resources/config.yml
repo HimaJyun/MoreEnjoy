@@ -35,3 +35,11 @@ MoreColor:
   # always, marker, false
   sign: always
   book: marker
+
+EditSign:
+  enable: true
+  error: "&cInvalid argument!!"
+  ready: "Ready to edit: {value}"
+  # If true, break the sign and edit it.
+  # Suitable for coexistence with plugins with protection features.
+  safety: true

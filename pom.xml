@@ -28,6 +28,7 @@
         <module>ByeByeWither</module>
         <module>MoreUtils</module>
         <module>MoreColor</module>
+        <module>EditSign</module>
     </modules>
 
     <developers>

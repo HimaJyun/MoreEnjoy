@@ -8,53 +8,15 @@
         <version>0.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <description>Editing sign after placed.</description>
 
-    <artifactId>all-in-one</artifactId>
+    <artifactId>EditSign</artifactId>
+
 
     <dependencies>
         <dependency>
             <groupId>jp.jyn</groupId>
-            <artifactId>NoVoid</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>AnyHat</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>RideNow</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>InfinityFirework</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>ImmutableSpawner</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>CrystalGuard</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>ByeByeWither</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>MoreColor</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>EditSign</artifactId>
+            <artifactId>MoreUtils</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>

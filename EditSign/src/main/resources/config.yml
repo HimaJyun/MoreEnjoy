@@ -1,0 +1,5 @@
+error: "&cInvalid argument!!"
+ready: "Ready to edit: {value}"
+# If true, break the sign and edit it.
+# Suitable for coexistence with plugins with protection features.
+safety: true

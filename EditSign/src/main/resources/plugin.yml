@@ -1,0 +1,33 @@
+main: "jp.jyn.moreenjoy.editsign.Main"
+name: "EditSign"
+version: "${project.version}"
+website: "${project.parent.url}"
+author: "HimaJyun( https://jyn.jp/ )"
+description: "${project.description}"
+api-version: "${spigot.api-version}"
+
+commands:
+  edit:
+    description: "Edit sign."
+    usage: "/<command> <line> <content>"
+    permission: "moreenjoy.editsign.edit"
+    aliases: [ "editsign" ]
+  moreenjoy-editsign:
+    description: "reload config."
+    usage: "/<command> reload"
+    permission: "moreenjoy.editsign.reload"
+
+permissions:
+  moreenjoy.*:
+    default: false
+    children:
+      moreenjoy.editsign.edit: true
+      moreenjoy.editsign.reload: true
+  moreenjoy.edit:
+    default: false
+    children:
+      moreenjoy.editsign.edit: true
+  moreenjoy.editsign.edit:
+    default: true
+  moreenjoy.editsign.reload:
+    default: op

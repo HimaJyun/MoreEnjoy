@@ -4,6 +4,7 @@ import jp.jyn.moreenjoy.anyhat.AnyHat;
 import jp.jyn.moreenjoy.byebyewither.ByeByeWither;
 import jp.jyn.moreenjoy.colorsign.MoreColor;
 import jp.jyn.moreenjoy.crystalguard.CrystalGuard;
+import jp.jyn.moreenjoy.editsign.EditSign;
 import jp.jyn.moreenjoy.immutablespawner.ImmutableSpawner;
 import jp.jyn.moreenjoy.infinityfirework.InfinityFirework;
 import jp.jyn.moreenjoy.novoid.NoVoid;
@@ -76,6 +77,12 @@ public class MoreEnjoy extends JavaPlugin {
         if (config.getBoolean("MoreColor.enable")) {
             getLogger().info("Enabling MoreColor");
             MoreColor instance = MoreColor.onEnable(this, getSection("MoreColor"));
+            destructor.add(instance::onDisable);
+        }
+
+        if (config.getBoolean("EditSign.enable")) {
+            getLogger().info("Enabling EditSign");
+            EditSign instance = EditSign.onEnable(this, getSection("EditSign"), getCommand("edit"));
             destructor.add(instance::onDisable);
         }
     }

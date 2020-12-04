@@ -1,4 +1,4 @@
-main: "jp.jyn.moreenjoy.morecolor.MoreColor"
+main: "jp.jyn.moreenjoy.morecolor.Main"
 name: "MoreColor"
 version: "${project.version}"
 website: "${project.parent.url}"

@@ -17,7 +17,11 @@ commands:
   minecart:
     description: "Ride minecart."
     usage: "/<command>"
+  edit:
+    description: "Edit sign."
+    usage: "/<command> <line> <content>"
 
+# TODO: 権限調整
 permissions:
   moreenjoy.*:
     default: false
@@ -27,6 +31,7 @@ permissions:
       moreenjoy.ridenow.boat: true
       moreenjoy.immutablespawner.allow: true
       moreenjoy.byebyewither.dragon: true
+      moreenjoy.editsign.edit: true
   # AnyHat
   moreenjoy.hat:
     default: false
@@ -63,3 +68,10 @@ permissions:
   # ByeByeWither
   moreenjoy.byebyewither.dragon:
     default: op
+  # EditSign
+  moreenjoy.edit:
+    default: false
+    children:
+      moreenjoy.editsign.edit: true
+  moreenjoy.editsign.edit:
+    default: true
