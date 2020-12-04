@@ -26,6 +26,8 @@
         <module>ImmutableSpawner</module>
         <module>CrystalGuard</module>
         <module>ByeByeWither</module>
+        <module>MoreUtils</module>
+        <module>MoreColor</module>
     </modules>
 
     <developers>

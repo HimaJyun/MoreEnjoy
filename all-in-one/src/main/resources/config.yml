@@ -28,3 +28,10 @@ ByeByeWither:
     - "world_the_end"
   dragon:
     - "world_the_end"
+
+MoreColor:
+  enable: true
+  marker: "&r"
+  # always, marker, false
+  sign: always
+  book: marker

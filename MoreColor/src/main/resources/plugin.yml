@@ -1,5 +1,5 @@
-main: "jp.jyn.moreenjoy.crystalguard.Main"
-name: "CrystalGuard"
+main: "jp.jyn.moreenjoy.morecolor.MoreColor"
+name: "MoreColor"
 version: "${project.version}"
 website: "${project.parent.url}"
 author: "HimaJyun( https://jyn.jp/ )"
@@ -7,15 +7,15 @@ description: "${project.description}"
 api-version: "${spigot.api-version}"
 
 commands:
-  moreenjoy-crystalguard:
+  moreenjoy-morecolor:
     description: "reload config."
     usage: "/<command> reload"
-    permission: "moreenjoy.crystalguard.reload"
+    permission: "moreenjoy.morecolor.reload"
 
 permissions:
   moreenjoy.*:
     default: false
     children:
-      moreenjoy.crystalguard.reload: true
-  moreenjoy.crystalguard.reload:
+      moreenjoy.morecolor.reload: true
+  moreenjoy.morecolor.reload:
     default: op

@@ -2,6 +2,7 @@ package jp.jyn.moreenjoy;
 
 import jp.jyn.moreenjoy.anyhat.AnyHat;
 import jp.jyn.moreenjoy.byebyewither.ByeByeWither;
+import jp.jyn.moreenjoy.colorsign.MoreColor;
 import jp.jyn.moreenjoy.crystalguard.CrystalGuard;
 import jp.jyn.moreenjoy.immutablespawner.ImmutableSpawner;
 import jp.jyn.moreenjoy.infinityfirework.InfinityFirework;
@@ -69,6 +70,12 @@ public class MoreEnjoy extends JavaPlugin {
         if (config.getBoolean("ByeByeWither.enable")) {
             getLogger().info("Enabling ByeByeWither");
             ByeByeWither instance = ByeByeWither.onEnable(this, getSection("ByeByeWither"));
+            destructor.add(instance::onDisable);
+        }
+
+        if (config.getBoolean("MoreColor.enable")) {
+            getLogger().info("Enabling MoreColor");
+            MoreColor instance = MoreColor.onEnable(this, getSection("MoreColor"));
             destructor.add(instance::onDisable);
         }
     }

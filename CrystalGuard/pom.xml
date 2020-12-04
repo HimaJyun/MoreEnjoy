@@ -8,6 +8,7 @@
         <version>0.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <description>Protects against crystal explosions.</description>
 
     <artifactId>CrystalGuard</artifactId>
 

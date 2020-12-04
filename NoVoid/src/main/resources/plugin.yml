@@ -16,4 +16,6 @@ permissions:
   moreenjoy.*:
     default: false
     children:
-      moreenjoy.noboid.reload: true
+      moreenjoy.novoid.reload: true
+  moreenjoy.novoid.reload:
+    default: op
