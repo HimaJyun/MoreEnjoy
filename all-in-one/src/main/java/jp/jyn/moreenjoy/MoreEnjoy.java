@@ -7,6 +7,7 @@ import jp.jyn.moreenjoy.crystalguard.CrystalGuard;
 import jp.jyn.moreenjoy.editsign.EditSign;
 import jp.jyn.moreenjoy.immutablespawner.ImmutableSpawner;
 import jp.jyn.moreenjoy.infinityfirework.InfinityFirework;
+import jp.jyn.moreenjoy.joinmessage.JoinMessage;
 import jp.jyn.moreenjoy.novoid.NoVoid;
 import jp.jyn.moreenjoy.ridenow.RideNow;
 import org.bukkit.ChatColor;
@@ -83,6 +84,12 @@ public class MoreEnjoy extends JavaPlugin {
         if (config.getBoolean("EditSign.enable")) {
             getLogger().info("Enabling EditSign");
             EditSign instance = EditSign.onEnable(this, getSection("EditSign"), getCommand("edit"));
+            destructor.add(instance::onDisable);
+        }
+
+        if(config.getBoolean("JoinMessage.enable")) {
+            getLogger().info("Enabling JoinMessage");
+            JoinMessage instance = JoinMessage.onEnable(this,getSection("JoinMessage"));
             destructor.add(instance::onDisable);
         }
     }

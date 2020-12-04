@@ -57,6 +57,11 @@
             <artifactId>EditSign</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>JoinMessage</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

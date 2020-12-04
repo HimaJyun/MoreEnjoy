@@ -29,6 +29,7 @@
         <module>MoreUtils</module>
         <module>MoreColor</module>
         <module>EditSign</module>
+        <module>JoinMessage</module>
     </modules>
 
     <developers>

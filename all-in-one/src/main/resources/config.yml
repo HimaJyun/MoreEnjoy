@@ -43,3 +43,8 @@ EditSign:
   # If true, break the sign and edit it.
   # Suitable for coexistence with plugins with protection features.
   safety: true
+
+JoinMessage:
+  enable: true
+  join: "&e{player} joined the game"
+  quit: "&e{player} left the game"

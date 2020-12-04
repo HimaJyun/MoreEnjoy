@@ -1,0 +1,21 @@
+main: "jp.jyn.moreenjoy.joinmessage.Main"
+name: "JoinMessage"
+version: "${project.version}"
+website: "${project.parent.url}"
+author: "HimaJyun( https://jyn.jp/ )"
+description: "${project.description}"
+api-version: "${spigot.api-version}"
+
+commands:
+  moreenjoy-joinmessage:
+    description: "reload config."
+    usage: "/<command> reload"
+    permission: "moreenjoy.joinmessage.reload"
+
+permissions:
+  moreenjoy.*:
+    default: false
+    children:
+      moreenjoy.joinmessage.reload: true
+  moreenjoy.joinmessage.reload:
+    default: op
