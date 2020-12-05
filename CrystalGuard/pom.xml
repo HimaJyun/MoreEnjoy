@@ -12,4 +12,11 @@
 
     <artifactId>CrystalGuard</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>MoreUtils</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
 </project>

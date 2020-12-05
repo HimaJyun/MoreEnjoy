@@ -2,13 +2,13 @@ package jp.jyn.moreenjoy;
 
 import jp.jyn.moreenjoy.anyhat.AnyHat;
 import jp.jyn.moreenjoy.byebyewither.ByeByeWither;
-import jp.jyn.moreenjoy.morecolor.MoreColor;
 import jp.jyn.moreenjoy.crystalguard.CrystalGuard;
 import jp.jyn.moreenjoy.docklessvehicle.DocklessVehicle;
 import jp.jyn.moreenjoy.editsign.EditSign;
 import jp.jyn.moreenjoy.immutablespawner.ImmutableSpawner;
 import jp.jyn.moreenjoy.infinityfirework.InfinityFirework;
 import jp.jyn.moreenjoy.joinmessage.JoinMessage;
+import jp.jyn.moreenjoy.morecolor.MoreColor;
 import jp.jyn.moreenjoy.novoid.NoVoid;
 import jp.jyn.moreenjoy.ridenow.RideNow;
 import org.bukkit.ChatColor;

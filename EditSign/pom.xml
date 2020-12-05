@@ -12,7 +12,6 @@
 
     <artifactId>EditSign</artifactId>
 
-
     <dependencies>
         <dependency>
             <groupId>jp.jyn</groupId>
