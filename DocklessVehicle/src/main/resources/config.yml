@@ -1,0 +1,6 @@
+boat: player # always(true)/player(no-player)/empty(only-empty)/first(is-first)/false
+minecart: true
+sendToInventory: true
+ready: "Please right-click vehicle."
+stop: "Automatic collection has been stopped."
+start: "Automatic collection has been restarted."

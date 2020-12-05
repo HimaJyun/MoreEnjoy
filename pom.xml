@@ -30,6 +30,7 @@
         <module>MoreColor</module>
         <module>EditSign</module>
         <module>JoinMessage</module>
+        <module>DocklessVehicle</module>
     </modules>
 
     <developers>

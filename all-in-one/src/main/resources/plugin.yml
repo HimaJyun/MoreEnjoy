@@ -20,6 +20,9 @@ commands:
   edit:
     description: "Edit sign."
     usage: "/<command> <line> <content>"
+  dockless:
+    description: "Stop automatic collection."
+    usage: "/<command> [true/false]"
 
 # TODO: 権限調整
 permissions:
@@ -32,6 +35,7 @@ permissions:
       moreenjoy.immutablespawner.allow: true
       moreenjoy.byebyewither.dragon: true
       moreenjoy.editsign.edit: true
+      moreenjoy.docklessvehicle.dock: true
   # AnyHat
   moreenjoy.hat:
     default: false
@@ -74,4 +78,11 @@ permissions:
     children:
       moreenjoy.editsign.edit: true
   moreenjoy.editsign.edit:
+    default: true
+  # DocklessVehicle
+  moreenjoy.dock:
+    default: false
+    children:
+      moreenjoy.docklessvehicle.dock: true
+  moreenjoy.docklessvehicle.dock:
     default: true

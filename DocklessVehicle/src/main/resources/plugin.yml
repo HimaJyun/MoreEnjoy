@@ -1,0 +1,32 @@
+main: "jp.jyn.moreenjoy.docklessvehicle.DocklessVehicle"
+name: "DocklessVehicle"
+version: "${project.version}"
+website: "${project.parent.url}"
+author: "HimaJyun( https://jyn.jp/ )"
+description: "${project.description}"
+api-version: "${spigot.api-version}"
+
+commands:
+  dockless:
+    description: "Stop automatic collection."
+    usage: "/<command> [true/false]"
+    permission: "moreenjoy.docklessvehicle.dock"
+  moreenjoy-docklessvehicle:
+    description: "reload config."
+    usage: "/<command> reload"
+    permission: "moreenjoy.docklessvehicle.reload"
+
+permissions:
+  moreenjoy.*:
+    default: false
+    children:
+      moreenjoy.docklessvehicle.dock: true
+      moreenjoy.docklessvehicle.reload: true
+  moreenjoy.dock:
+    default: false
+    children:
+      moreenjoy.docklessvehicle.dock: true
+  moreenjoy.docklessvehicle.dock:
+    default: true
+  moreenjoy.docklessvehicle.reload:
+    default: op

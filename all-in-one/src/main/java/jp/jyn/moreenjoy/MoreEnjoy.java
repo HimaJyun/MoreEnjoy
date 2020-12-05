@@ -4,6 +4,7 @@ import jp.jyn.moreenjoy.anyhat.AnyHat;
 import jp.jyn.moreenjoy.byebyewither.ByeByeWither;
 import jp.jyn.moreenjoy.colorsign.MoreColor;
 import jp.jyn.moreenjoy.crystalguard.CrystalGuard;
+import jp.jyn.moreenjoy.docklessvehicle.DocklessVehicle;
 import jp.jyn.moreenjoy.editsign.EditSign;
 import jp.jyn.moreenjoy.immutablespawner.ImmutableSpawner;
 import jp.jyn.moreenjoy.infinityfirework.InfinityFirework;
@@ -87,9 +88,17 @@ public class MoreEnjoy extends JavaPlugin {
             destructor.add(instance::onDisable);
         }
 
-        if(config.getBoolean("JoinMessage.enable")) {
+        if (config.getBoolean("JoinMessage.enable")) {
             getLogger().info("Enabling JoinMessage");
-            JoinMessage instance = JoinMessage.onEnable(this,getSection("JoinMessage"));
+            JoinMessage instance = JoinMessage.onEnable(this, getSection("JoinMessage"));
+            destructor.add(instance::onDisable);
+        }
+
+        if (config.getBoolean("DocklessVehicle.enable")) {
+            getLogger().info("Enabling DocklessVehicle");
+            DocklessVehicle instance = DocklessVehicle.onEnable(
+                this, getSection("DocklessVehicle"), getCommand("dockless")
+            );
             destructor.add(instance::onDisable);
         }
     }

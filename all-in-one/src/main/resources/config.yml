@@ -48,3 +48,13 @@ JoinMessage:
   enable: true
   join: "&e{player} joined the game"
   quit: "&e{player} left the game"
+
+DocklessVehicle:
+  enable: true
+  boat: player # always(true)/player(no-player)/empty(only-empty)/first(is-first)/false
+  minecart: true
+  sendToInventory: true
+  ready: "Please right-click vehicle."
+  stop: "Automatic collection has been stopped."
+  start: "Automatic collection has been restarted."
+
