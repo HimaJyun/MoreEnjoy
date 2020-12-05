@@ -30,7 +30,7 @@ public class Main extends JavaPlugin {
 
         onDisable();
         onEnable();
-        sender.sendMessage("[MoreEnjoy (EditSign)] Reload complete.");
+        sender.sendMessage("[MoreEnjoy (DocklessVehicle)] Reload complete.");
         return true;
     }
 

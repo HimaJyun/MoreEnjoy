@@ -13,11 +13,6 @@ commands:
     permission: "moreenjoy.byebyewither.reload"
 
 permissions:
-  moreenjoy.*:
-    default: false
-    children:
-      moreenjoy.byebyewither.dragon: true
-      moreenjoy.byebyewither.reload: true
   moreenjoy.byebyewither.dragon:
     default: op
   moreenjoy.byebyewither.reload:

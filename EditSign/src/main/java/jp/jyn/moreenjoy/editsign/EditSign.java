@@ -94,10 +94,9 @@ public class EditSign implements Listener, TabExecutor {
         }
     }
 
-    // EventPriority.HIGHにしておけば保護系プラグインが先に発動するはず
+    // EventPriority.HIGHにしておけば後で発動する==保護系プラグインが先に発動するはず
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onBlockBreakEvent(BlockBreakEvent e) {
-        System.out.println("break");
         if (apply(e.getPlayer(), e.getBlock())) {
             e.setCancelled(true);
         }

@@ -20,19 +20,6 @@ permissions:
     children:
       moreenjoy.ridenow.minecart: true
       moreenjoy.ridenow.boat: true
-  moreenjoy.minecart:
-    default: false
-    children:
-      moreenjoy.ridenow.minecart: true
-  moreenjoy.boat:
-    default: false
-    children:
-      moreenjoy.ridenow.boat: true
-  moreenjoy.ridenow.*:
-    default: false
-    children:
-      moreenjoy.ridenow.minecart: true
-      moreenjoy.ridenow.boat: true
   moreenjoy.ridenow.minecart:
     default: true
   moreenjoy.ridenow.boat:

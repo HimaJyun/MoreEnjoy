@@ -13,9 +13,5 @@ commands:
     permission: "moreenjoy.joinmessage.reload"
 
 permissions:
-  moreenjoy.*:
-    default: false
-    children:
-      moreenjoy.joinmessage.reload: true
   moreenjoy.joinmessage.reload:
     default: op

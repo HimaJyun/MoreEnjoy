@@ -7,9 +7,5 @@ description: "${project.description}"
 api-version: "${spigot.api-version}"
 
 permissions:
-  moreenjoy.*:
-    default: false
-    children:
-      moreenjoy.immutablespawner.allow: true
   moreenjoy.immutablespawner.allow:
     default: op

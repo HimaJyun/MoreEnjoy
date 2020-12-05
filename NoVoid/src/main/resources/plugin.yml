@@ -13,9 +13,5 @@ commands:
     permission: "moreenjoy.novoid.reload"
 
 permissions:
-  moreenjoy.*:
-    default: false
-    children:
-      moreenjoy.novoid.reload: true
   moreenjoy.novoid.reload:
     default: op

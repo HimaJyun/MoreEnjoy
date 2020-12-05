@@ -1,4 +1,4 @@
-package jp.jyn.moreenjoy.colorsign;
+package jp.jyn.moreenjoy.morecolor;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

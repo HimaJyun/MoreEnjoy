@@ -10,7 +10,6 @@ commands:
   hat:
     description: "Wear everything on your head."
     usage: "/<command>"
-    aliases: [ "moreenjoy-anyhat" ]
   boat:
     description: "Ride boat."
     usage: "/<command>"
@@ -24,7 +23,6 @@ commands:
     description: "Stop automatic collection."
     usage: "/<command> [true/false]"
 
-# TODO: 権限調整
 permissions:
   moreenjoy.*:
     default: false
@@ -37,31 +35,10 @@ permissions:
       moreenjoy.editsign.edit: true
       moreenjoy.docklessvehicle.dock: true
   # AnyHat
-  moreenjoy.hat:
-    default: false
-    children:
-      moreenjoy.anyhat.hat: true
-  moreenjoy.anyhat.*:
-    default: false
-    children:
-      moreenjoy.anyhat.hat: true
   moreenjoy.anyhat.hat:
     description: "Allow use of /hat command."
     default: true
   # RideNow
-  moreenjoy.minecart:
-    default: false
-    children:
-      moreenjoy.ridenow.minecart: true
-  moreenjoy.boat:
-    default: false
-    children:
-      moreenjoy.ridenow.boat: true
-  moreenjoy.ridenow.*:
-    default: false
-    children:
-      moreenjoy.ridenow.minecart: true
-      moreenjoy.ridenow.boat: true
   moreenjoy.ridenow.minecart:
     default: true
   moreenjoy.ridenow.boat:
@@ -73,16 +50,8 @@ permissions:
   moreenjoy.byebyewither.dragon:
     default: op
   # EditSign
-  moreenjoy.edit:
-    default: false
-    children:
-      moreenjoy.editsign.edit: true
   moreenjoy.editsign.edit:
     default: true
   # DocklessVehicle
-  moreenjoy.dock:
-    default: false
-    children:
-      moreenjoy.docklessvehicle.dock: true
   moreenjoy.docklessvehicle.dock:
     default: true

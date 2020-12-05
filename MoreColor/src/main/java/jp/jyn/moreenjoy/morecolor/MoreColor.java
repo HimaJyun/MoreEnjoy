@@ -1,4 +1,4 @@
-package jp.jyn.moreenjoy.colorsign;
+package jp.jyn.moreenjoy.morecolor;
 
 import jp.jyn.moreenjoy.utils.ColorConverter;
 import org.bukkit.Bukkit;

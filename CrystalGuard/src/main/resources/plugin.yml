@@ -13,9 +13,5 @@ commands:
     permission: "moreenjoy.crystalguard.reload"
 
 permissions:
-  moreenjoy.*:
-    default: false
-    children:
-      moreenjoy.crystalguard.reload: true
   moreenjoy.crystalguard.reload:
     default: op

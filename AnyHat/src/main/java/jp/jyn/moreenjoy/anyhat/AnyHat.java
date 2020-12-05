@@ -12,7 +12,6 @@ import org.bukkit.plugin.Plugin;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 public class AnyHat implements TabExecutor {
     private final static String PREFIX = "[MoreEnjoy (AnyHat)] ";
@@ -25,22 +24,16 @@ public class AnyHat implements TabExecutor {
         this.command = command;
     }
 
-    public static AnyHat onEnable() {
-        return new AnyHat(null, null);
-    }
-
     public static AnyHat onEnable(Plugin plugin, PluginCommand command) {
-        AnyHat instance = new AnyHat(Objects.requireNonNull(plugin), Objects.requireNonNull(command));
+        AnyHat instance = new AnyHat(plugin, command);
         command.setExecutor(instance);
         command.setTabCompleter(instance);
         return instance;
     }
 
     public void onDisable() {
-        if (plugin != null && command != null) {
-            command.setTabCompleter(plugin);
-            command.setExecutor(plugin);
-        }
+        command.setTabCompleter(plugin);
+        command.setExecutor(plugin);
     }
 
     @Override

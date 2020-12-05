@@ -8,28 +8,10 @@ api-version: "${spigot.api-version}"
 
 commands:
   hat:
-    description: "${project.description}"
-    usage: "/<command> [reload]"
-    aliases: [ "moreenjoy-anyhat" ]
+    description: "Wear everything on your head."
+    usage: "/<command>"
 
 permissions:
-  moreenjoy.*:
-    default: false
-    children:
-      moreenjoy.anyhat.hat: true
-      moreenjoy.anyhat.reload: true
-  moreenjoy.hat:
-    default: false
-    children:
-      moreenjoy.anyhat.hat: true
-  moreenjoy.anyhat.*:
-    default: false
-    children:
-      moreenjoy.anyhat.hat: true
-      moreenjoy.anyhat.reload: true
   moreenjoy.anyhat.hat:
     description: "Allow use of /hat command."
     default: true
-  moreenjoy.anyhat.reload:
-    description: "Allow use of /hat reload command."
-    default: op

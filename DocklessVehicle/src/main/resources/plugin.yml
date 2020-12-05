@@ -1,4 +1,4 @@
-main: "jp.jyn.moreenjoy.docklessvehicle.DocklessVehicle"
+main: "jp.jyn.moreenjoy.docklessvehicle.Main"
 name: "DocklessVehicle"
 version: "${project.version}"
 website: "${project.parent.url}"
@@ -17,15 +17,6 @@ commands:
     permission: "moreenjoy.docklessvehicle.reload"
 
 permissions:
-  moreenjoy.*:
-    default: false
-    children:
-      moreenjoy.docklessvehicle.dock: true
-      moreenjoy.docklessvehicle.reload: true
-  moreenjoy.dock:
-    default: false
-    children:
-      moreenjoy.docklessvehicle.dock: true
   moreenjoy.docklessvehicle.dock:
     default: true
   moreenjoy.docklessvehicle.reload:

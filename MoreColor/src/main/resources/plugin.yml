@@ -13,9 +13,5 @@ commands:
     permission: "moreenjoy.morecolor.reload"
 
 permissions:
-  moreenjoy.*:
-    default: false
-    children:
-      moreenjoy.morecolor.reload: true
   moreenjoy.morecolor.reload:
     default: op

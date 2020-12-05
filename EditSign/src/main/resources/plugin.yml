@@ -18,15 +18,6 @@ commands:
     permission: "moreenjoy.editsign.reload"
 
 permissions:
-  moreenjoy.*:
-    default: false
-    children:
-      moreenjoy.editsign.edit: true
-      moreenjoy.editsign.reload: true
-  moreenjoy.edit:
-    default: false
-    children:
-      moreenjoy.editsign.edit: true
   moreenjoy.editsign.edit:
     default: true
   moreenjoy.editsign.reload:
