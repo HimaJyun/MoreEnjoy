@@ -41,14 +41,64 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DocklessVehicle implements Listener, TabExecutor {
-    private final static String PREFIX = "[MoreEnjoy (DocklessVehicle)] ";
-
     private enum BoatMode {
-        ALWAYS,
-        NO_PLAYER,
-        ONLY_EMPTY,
-        FIRST
+        ALWAYS("always", "true") {
+            @Override
+            public boolean check(Vehicle boat, Entity player) {
+                return true;
+            }
+        },
+        NO_PLAYER("player", "no-player", "no_player", "noplayer") {
+            @Override
+            boolean check(Vehicle boat, Entity player) {
+                List<Entity> passengers = boat.getPassengers();
+                if (passengers.size() < 2) {
+                    return true;
+                }
+                for (Entity entity : passengers) {
+                    if (entity.getType() == EntityType.PLAYER && !entity.equals(player)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        },
+        ONLY_EMPTY("empty", "only-empty", "only_empty", "onlyempty") {
+            @Override
+            boolean check(Vehicle boat, Entity player) {
+                return boat.getPassengers().size() < 2;
+            }
+        },
+        FIRST("first", "is-first", "is_first", "isfirst") {
+            @Override
+            boolean check(Vehicle boat, Entity player) {
+                return boat.getPassengers().get(0).equals(player);
+            }
+        };
+
+        private final static Map<String, BoatMode> STR_MODE;
+        private String[] tmp;
+
+        static {
+            Map<String, BoatMode> result = new HashMap<>();
+            for (BoatMode value : values()) {
+                for (String key : value.tmp) {
+                    result.put(key, value);
+                }
+                value.tmp = null;
+            }
+            STR_MODE = Collections.unmodifiableMap(result);
+        }
+
+        BoatMode(String... key) {
+            this.tmp = key;
+        }
+
+        /* package */
+        abstract boolean check(Vehicle boat, Entity player);
     }
+
+    private final static String PREFIX = "[MoreEnjoy (DocklessVehicle)] ";
 
     private final Plugin plugin;
     private final PluginCommand command;
@@ -70,38 +120,11 @@ public class DocklessVehicle implements Listener, TabExecutor {
     private DocklessVehicle(Plugin plugin, ConfigurationSection config, PluginCommand command) {
         this.plugin = plugin;
         this.command = command;
-        this.persistentKey = new NamespacedKey(plugin, "docklessvehicle");
 
         this.minecart = config.getBoolean("minecart");
         this.sendToInventory = config.getBoolean("sendToInventory");
-
-        switch (config.getString("boat").toLowerCase(Locale.ENGLISH)) {
-            case "always":
-            case "true":
-                boat = BoatMode.ALWAYS;
-                break;
-            case "player":
-            case "no-player":
-            case "no_player":
-            case "noplayer":
-                boat = BoatMode.NO_PLAYER;
-                break;
-            case "empty":
-            case "only-empty":
-            case "only_empty":
-            case "onlyempty":
-                boat = BoatMode.ONLY_EMPTY;
-                break;
-            case "first":
-            case "is-first":
-            case "is_first":
-            case "isfirst":
-                boat = BoatMode.FIRST;
-                break;
-            default:
-                boat = null;
-                break;
-        }
+        this.boat = BoatMode.STR_MODE.get(config.getString("boat").toLowerCase(Locale.ENGLISH));
+        this.persistentKey = new NamespacedKey(plugin, "docklessvehicle");
 
         String ry = config.getString("ready");
         String sp = config.getString("stop");
@@ -111,9 +134,10 @@ public class DocklessVehicle implements Listener, TabExecutor {
         defaultStart = ColorConverter.convert(PREFIX + st);
         for (String key : config.getKeys(false)) { // 実はローカライズできる
             if (config.isConfigurationSection(key)) {
-                ready.put(key, ColorConverter.convert(PREFIX + config.getString(key + ".ready", ry)));
-                stop.put(key, ColorConverter.convert(PREFIX + config.getString(key + ".stop", sp)));
-                start.put(key, ColorConverter.convert(PREFIX + config.getString(key + ".start", st)));
+                ConfigurationSection locale = config.getConfigurationSection(key);
+                ready.put(key, ColorConverter.convert(PREFIX + locale.getString("ready", ry)));
+                stop.put(key, ColorConverter.convert(PREFIX + locale.getString("stop", sp)));
+                start.put(key, ColorConverter.convert(PREFIX + locale.getString("start", st)));
             }
         }
     }
@@ -141,16 +165,24 @@ public class DocklessVehicle implements Listener, TabExecutor {
         }
 
         Vehicle vehicle = e.getVehicle();
+        Material material;
         switch (vehicle.getType()) {
             case BOAT:
-                if (boat != null && !isPersistent(vehicle)) {
-                    onBoatExit((Boat) vehicle, (Player) entity);
+                if (boat != null
+                    && !vehicle.isDead()
+                    && !isPersistent(vehicle)
+                    && boat.check(vehicle, entity)) {
+                    Boat boat = (Boat) vehicle;
+                    autoCollect(getBoatType(boat.getWoodType()), vehicle, (Player) entity);
                 }
-                return;
+                break;
             case MINECART:
-                if (minecart && !isPersistent(vehicle)) {
-                    onMinecartExit(vehicle, (Player) entity);
+                if (minecart
+                    && !vehicle.isDead()
+                    && !isPersistent(vehicle)) {
+                    autoCollect(Material.MINECART, vehicle, (Player) entity);
                 }
+                break;
         }
     }
 
@@ -172,76 +204,29 @@ public class DocklessVehicle implements Listener, TabExecutor {
             }
         }
 
-        if (player == null || !minecart || isPersistent(vehicle)) {
-            return;
+        if (player != null && minecart && !isPersistent(vehicle)) {
+            Location location = vehicle.getLocation();
+            location.getWorld().dropItemNaturally(location, new ItemStack(Material.MINECART));
+            vehicle.remove();
+            e.setCancelled(true);
+        }
+    }
+
+    private void autoCollect(Material material, Vehicle vehicle, Player player) {
+        ItemStack item = new ItemStack(material);
+        if (sendToInventory) {
+            Inventory inventory = player.getInventory();
+            int i = inventory.firstEmpty();
+            if (i != -1) {
+                inventory.setItem(i, item);
+                vehicle.remove();
+                return;
+            }
         }
 
-        dropItem(Material.MINECART, vehicle.getLocation());
+        Location location = vehicle.getLocation();
+        location.getWorld().dropItemNaturally(location, item);
         vehicle.remove();
-        e.setCancelled(true);
-    }
-
-    private void onBoatExit(Boat vehicle, Player player) {
-        // 回収済みボート
-        if (vehicle.isDead()) {
-            return;
-        }
-
-        switch (boat) {
-            case FIRST:
-                if (!vehicle.getPassengers().get(0).equals(player)) {
-                    return;
-                }
-                break;
-            case NO_PLAYER:
-                List<Entity> passengers = vehicle.getPassengers();
-                if (passengers.size() <= 1) {
-                    break;
-                }
-                for (Entity entity : passengers) {
-                    if (entity.getType() != EntityType.PLAYER
-                        || entity.equals(player)) {
-                        continue;
-                    }
-                    return;
-                }
-                break;
-            case ONLY_EMPTY:
-                if (vehicle.getPassengers().size() > 1) {
-                    return;
-                }
-                break;
-        }
-
-        Material material = getBoatType(vehicle.getWoodType());
-        if (!sendToInventory || !addInventory(material, player.getInventory())) {
-            dropItem(material, vehicle.getLocation());
-        }
-        vehicle.remove();
-    }
-
-    private void onMinecartExit(Vehicle vehicle, Player player) {
-        if (vehicle.isDead()) {
-            return;
-        }
-
-        if (!sendToInventory || !addInventory(Material.MINECART, player.getInventory())) {
-            dropItem(Material.MINECART, vehicle.getLocation());
-        }
-        vehicle.remove();
-    }
-
-    private void dropItem(Material material, Location location) {
-        location.getWorld().dropItemNaturally(location, new ItemStack(material));
-    }
-
-    private boolean addInventory(Material material, Inventory inventory) {
-        int i = inventory.firstEmpty();
-        if (i == -1) {
-            return false;
-        }
-        inventory.setItem(i, new ItemStack(material));
-        return true;
     }
 
     private Material getBoatType(TreeSpecies tree) {
@@ -276,35 +261,29 @@ public class DocklessVehicle implements Listener, TabExecutor {
             return true;
         }
 
-        Function<PersistentDataContainer, Boolean> operator = meta -> {
-            if (meta.has(persistentKey, PersistentDataType.BYTE)) {
-                meta.remove(persistentKey);
-                return false;
-            } else {
-                meta.set(persistentKey, PersistentDataType.BYTE, (byte) 1);
-                return true;
-            }
-        };
-        if (args.length >= 1) {
-            if (args[0].equalsIgnoreCase("true")) {
-                operator = meta -> {
-                    meta.set(persistentKey, PersistentDataType.BYTE, (byte) 1);
-                    return true;
-                };
-            } else if (args[0].equalsIgnoreCase("false")) {
-                operator = meta -> {
-                    meta.remove(persistentKey);
-                    return false;
-                };
-            } else {
-                return false;
-            }
+        Function<PersistentDataContainer, Boolean> operator = args.length == 0
+            ? meta -> meta.has(persistentKey, PersistentDataType.BYTE) ? setPersist(meta) : removePersist(meta)
+            : args[0].equalsIgnoreCase("true") ? this::setPersist
+            : args[0].equalsIgnoreCase("false") ? this::removePersist
+            : null;
+        if (operator == null) {
+            return false;
         }
 
         Player player = (Player) sender;
         dock.put(player.getUniqueId(), operator);
         player.sendMessage(ready.getOrDefault(player.getLocale(), defaultReady));
         return true;
+    }
+
+    private boolean setPersist(PersistentDataContainer meta) {
+        meta.set(persistentKey, PersistentDataType.BYTE, (byte) 1);
+        return true;
+    }
+
+    private boolean removePersist(PersistentDataContainer meta) {
+        meta.remove(persistentKey);
+        return false;
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
@@ -329,11 +308,10 @@ public class DocklessVehicle implements Listener, TabExecutor {
             return;
         }
 
-        if (operator.apply(vehicle.getPersistentDataContainer())) {
-            player.sendMessage(stop.getOrDefault(player.getLocale(), defaultStop));
-        } else {
-            player.sendMessage(start.getOrDefault(player.getLocale(), defaultStart));
-        }
+        player.sendMessage(operator.apply(vehicle.getPersistentDataContainer())
+            ? stop.getOrDefault(player.getLocale(), defaultStop)
+            : start.getOrDefault(player.getLocale(), defaultStart)
+        );
         e.setCancelled(true);
     }
 

@@ -31,6 +31,7 @@
         <module>EditSign</module>
         <module>JoinMessage</module>
         <module>DocklessVehicle</module>
+        <module>ThisWorld</module>
     </modules>
 
     <developers>
