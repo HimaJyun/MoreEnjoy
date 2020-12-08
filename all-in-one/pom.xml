@@ -67,6 +67,11 @@
             <artifactId>DocklessVehicle</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>ThisWorld</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

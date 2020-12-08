@@ -11,6 +11,7 @@ import jp.jyn.moreenjoy.joinmessage.JoinMessage;
 import jp.jyn.moreenjoy.morecolor.MoreColor;
 import jp.jyn.moreenjoy.novoid.NoVoid;
 import jp.jyn.moreenjoy.ridenow.RideNow;
+import jp.jyn.moreenjoy.thisworld.ThisWorld;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -99,6 +100,12 @@ public class MoreEnjoy extends JavaPlugin {
             DocklessVehicle instance = DocklessVehicle.onEnable(
                 this, getSection("DocklessVehicle"), getCommand("dockless")
             );
+            destructor.add(instance::onDisable);
+        }
+
+        if (config.getBoolean("ThisWorld.enable")) {
+            getLogger().info("Enabling ThisWorld");
+            ThisWorld instance = ThisWorld.onEnable(this, getSection("ThisWorld"), getCommand("thisworld"));
             destructor.add(instance::onDisable);
         }
     }

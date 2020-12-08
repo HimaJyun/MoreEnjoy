@@ -1,0 +1,23 @@
+main: "jp.jyn.moreenjoy.thisworld.Main"
+name: "ThisWorld"
+version: "${project.version}"
+website: "${project.parent.url}"
+author: "HimaJyun( https://jyn.jp/ )"
+description: "${project.description}"
+api-version: "${spigot.api-version}"
+
+commands:
+  thisworld:
+    description: "Show this world title."
+    usage: "/<command>"
+    permission: "moreenjoy.thisworld.show"
+  moreenjoy-thisworld:
+    description: "reload config."
+    usage: "/<command> reload"
+    permission: "moreenjoy.thisworld.reload"
+
+permissions:
+  moreenjoy.thisworld.show:
+    default: true
+  moreenjoy.thisworld.reload:
+    default: op

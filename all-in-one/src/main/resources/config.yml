@@ -58,3 +58,58 @@ DocklessVehicle:
   stop: "Automatic collection has been stopped."
   start: "Automatic collection has been restarted."
 
+ThisWorld:
+  enable: true
+  unavailable: "&cNot available in this world."
+  # unit: tick (1/20 second = 50ms)
+  # chat and actionbar have no effect.
+  time:
+    fadein: 10
+    stay: 35
+    fadeout: 10
+    delay: 0
+  title:
+    world:
+      title: "&2World"
+      subtitle: "Our world."
+      actionbar: "Don't mining in this world."
+      # available multiple lines.
+      chat: [ "Don't griefing!", "Have fun!" ]
+      # available time override.
+      fadein: 10
+      stay: 35
+      fadeout: 10
+      delay: 0
+    world_nether:
+      title: "&cNether"
+      subtitle: "world_nether"
+    world_the_end:
+      title: "&8The End"
+      subtitle: "&kworld_the_end"
+      actionbar: "vs EnderDragon"
+
+# //*<!-- syntax -->*/
+# &0->Black(#000000)
+# &1->Dark Blue(#0000AA)
+# &2->Dark Green(#00AA00)
+# &3->Dark Aqua(#00AAAA)
+# &4->Dark Red(#AA0000)
+# &5->Purple(#AA00AA)
+# &6->Gold(#FFAA00)
+# &7->Gray(#AAAAAA)
+# &8->Dark Gray(#555555)
+# &9->Blue(#5555FF)
+# &a->Green(#55FF55)
+# &b->Aqua(#55FFFF)
+# &c->Red(#FF5555)
+# &d->Light Purple(#FF55FF)
+# &e->Yellow(#FFFF55)
+# &f->White(#FFFFFF)
+# &k->Obfuscated
+# &l->Bold
+# &m->Strikethrough
+# &n->Underline
+# &o->Italic
+# &r->Reset
+# #rrggbb(or #rgb)->Hex color
+# &->escape

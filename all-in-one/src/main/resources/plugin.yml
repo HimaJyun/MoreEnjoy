@@ -22,6 +22,9 @@ commands:
   dockless:
     description: "Stop automatic collection."
     usage: "/<command> [true/false]"
+  thisworld:
+    description: "Show this world title."
+    usage: "/<command>"
 
 permissions:
   moreenjoy.*:
@@ -34,6 +37,7 @@ permissions:
       moreenjoy.byebyewither.dragon: true
       moreenjoy.editsign.edit: true
       moreenjoy.docklessvehicle.dock: true
+      moreenjoy.thisworld.show: true
   # AnyHat
   moreenjoy.anyhat.hat:
     description: "Allow use of /hat command."
@@ -54,4 +58,7 @@ permissions:
     default: true
   # DocklessVehicle
   moreenjoy.docklessvehicle.dock:
+    default: true
+  # ThisWorld
+  moreenjoy.thisworld.show:
     default: true
