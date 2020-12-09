@@ -1,0 +1,19 @@
+main: "jp.jyn.moreenjoy.lorebook.Main"
+name: "LoreBook"
+version: "${project.version}"
+website: "${project.parent.url}"
+author: "HimaJyun( https://jyn.jp/ )"
+description: "${project.description}"
+api-version: "${spigot.api-version}"
+
+commands:
+  moreenjoy-lorebook:
+    description: "reload config."
+    usage: "/<command> reload"
+    permission: "moreenjoy.lorebook.reload"
+
+permissions:
+  moreenjoy.lorebook.use:
+    default: true
+  moreenjoy.lorebook.reload:
+    default: op

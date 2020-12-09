@@ -72,6 +72,11 @@
             <artifactId>ThisWorld</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>LoreBook</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

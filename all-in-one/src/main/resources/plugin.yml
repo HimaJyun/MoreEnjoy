@@ -38,6 +38,7 @@ permissions:
       moreenjoy.editsign.edit: true
       moreenjoy.docklessvehicle.dock: true
       moreenjoy.thisworld.show: true
+      moreenjoy.lorebook.use: true
   # AnyHat
   moreenjoy.anyhat.hat:
     description: "Allow use of /hat command."
@@ -61,4 +62,7 @@ permissions:
     default: true
   # ThisWorld
   moreenjoy.thisworld.show:
+    default: true
+  # LoreBook
+  moreenjoy.lorebook.use:
     default: true

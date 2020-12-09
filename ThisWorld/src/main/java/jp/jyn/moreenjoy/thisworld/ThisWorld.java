@@ -120,9 +120,6 @@ public class ThisWorld implements TabExecutor, Listener {
 
     private void send(Player player, TitleConfig config) {
         Player.Spigot spigot = player.spigot();
-        System.out.println(config.fadeIn);
-        System.out.println(config.stay);
-        System.out.println(config.fadeOut);
         player.sendTitle(config.title, config.subTitle, config.fadeIn, config.stay, config.fadeOut);
         spigot.sendMessage(ChatMessageType.ACTION_BAR, config.actionbar);
         for (BaseComponent[] c : config.chat) {

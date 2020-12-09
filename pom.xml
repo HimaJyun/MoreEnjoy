@@ -32,6 +32,7 @@
         <module>JoinMessage</module>
         <module>DocklessVehicle</module>
         <module>ThisWorld</module>
+        <module>LoreBook</module>
     </modules>
 
     <developers>

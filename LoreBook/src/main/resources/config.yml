@@ -1,0 +1,6 @@
+notEnough: "&cNot enough experience points!"
+onlyDurable: false
+# Due to Bukkit restrictions, the required experience points will not be displayed on the anvil.
+experience: 0
+maxLength: 24
+maxLine: 12

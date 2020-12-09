@@ -8,6 +8,7 @@ import jp.jyn.moreenjoy.editsign.EditSign;
 import jp.jyn.moreenjoy.immutablespawner.ImmutableSpawner;
 import jp.jyn.moreenjoy.infinityfirework.InfinityFirework;
 import jp.jyn.moreenjoy.joinmessage.JoinMessage;
+import jp.jyn.moreenjoy.lorebook.LoreBook;
 import jp.jyn.moreenjoy.morecolor.MoreColor;
 import jp.jyn.moreenjoy.novoid.NoVoid;
 import jp.jyn.moreenjoy.ridenow.RideNow;
@@ -106,6 +107,12 @@ public class MoreEnjoy extends JavaPlugin {
         if (config.getBoolean("ThisWorld.enable")) {
             getLogger().info("Enabling ThisWorld");
             ThisWorld instance = ThisWorld.onEnable(this, getSection("ThisWorld"), getCommand("thisworld"));
+            destructor.add(instance::onDisable);
+        }
+
+        if (config.getBoolean("LoreBook.enable")) {
+            getLogger().info("Enabling LoreBook");
+            LoreBook instance = LoreBook.onEnable(this, getSection("LoreBook"));
             destructor.add(instance::onDisable);
         }
     }
