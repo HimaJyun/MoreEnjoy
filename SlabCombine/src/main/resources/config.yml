@@ -1,0 +1,14 @@
+exclude: [ ]
+custom: { }
+# example
+#exclude:
+#  - "OAK_SLAB"
+#custom:
+#  OAK_LOG*12:
+#    key: "unique_recipe_name" # Optional
+#    layout:
+#      - "OOO"
+#      - "OOO"
+#      - "OOO"
+#    material:
+#      O: "OAK_WOOD"
