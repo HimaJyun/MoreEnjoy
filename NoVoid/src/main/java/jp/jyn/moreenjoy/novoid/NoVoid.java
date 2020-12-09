@@ -1,7 +1,6 @@
 package jp.jyn.moreenjoy.novoid;
 
 import org.bukkit.Bukkit;
-import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -11,21 +10,21 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class NoVoid implements Listener {
+    private final Plugin plugin;
     private final Set<String> exclude = new HashSet<>();
 
-    private NoVoid(ConfigurationSection config) {
+    private NoVoid(Plugin plugin, ConfigurationSection config) {
+        this.plugin = plugin;
         exclude.addAll(config.getStringList("exclude"));
     }
 
     public static NoVoid onEnable(Plugin plugin, ConfigurationSection config) {
-        NoVoid instance = new NoVoid(config);
+        NoVoid instance = new NoVoid(plugin, config);
         Bukkit.getPluginManager().registerEvents(instance, plugin);
         return instance;
     }
@@ -43,21 +42,16 @@ public class NoVoid implements Listener {
         }
 
         Player player = (Player) e.getEntity();
-        World world = player.getWorld();
-
-        // exclude check
-        if (exclude.contains(world.getName())) {
+        if (exclude.contains(player.getWorld().getName())          // exclude
+            || player.getLocation().getBlockY() > 0) { // kill
             return;
         }
 
-        // no fall damage
-        PotionEffect potion = player.getPotionEffect(PotionEffectType.SLOW_FALLING);
-        if (potion == null) {
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 2, 0));
-        }
-
-        // teleport and cancel
-        player.teleport(world.getSpawnLocation(), PlayerTeleportEvent.TeleportCause.PLUGIN);
+        // stop falling.
+        Bukkit.getScheduler().runTask(plugin, () -> {
+            player.setFallDistance(0);
+            player.teleport(player.getWorld().getSpawnLocation(), PlayerTeleportEvent.TeleportCause.PLUGIN);
+        });
         e.setCancelled(true);
     }
 }
