@@ -33,7 +33,6 @@
         <module>DocklessVehicle</module>
         <module>ThisWorld</module>
         <module>LoreBook</module>
-        <module>SlabCombine</module>
     </modules>
 
     <developers>

@@ -12,7 +12,6 @@ import jp.jyn.moreenjoy.lorebook.LoreBook;
 import jp.jyn.moreenjoy.morecolor.MoreColor;
 import jp.jyn.moreenjoy.novoid.NoVoid;
 import jp.jyn.moreenjoy.ridenow.RideNow;
-import jp.jyn.moreenjoy.slabcombine.SlabCombine;
 import jp.jyn.moreenjoy.thisworld.ThisWorld;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -114,12 +113,6 @@ public class MoreEnjoy extends JavaPlugin {
         if (config.getBoolean("LoreBook.enable")) {
             getLogger().info("Enabling LoreBook");
             LoreBook instance = LoreBook.onEnable(this, getSection("LoreBook"));
-            destructor.add(instance::onDisable);
-        }
-
-        if (config.getBoolean("SlabCombine.enable")) {
-            getLogger().info("Enabling SlabCombine");
-            SlabCombine instance = SlabCombine.onEnable(this, getSection("SlabCombine"));
             destructor.add(instance::onDisable);
         }
     }
