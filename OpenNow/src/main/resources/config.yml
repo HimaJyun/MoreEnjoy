@@ -1,0 +1,6 @@
+shulker: true
+ender: true
+# right/shift-right/left/shift-left/false
+placeOpen: left
+enderOnlyOne: true
+lore: "Opened by {player}"

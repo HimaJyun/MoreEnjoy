@@ -97,6 +97,14 @@ LoreBook:
   maxLength: 24
   maxLine: 12
 
+OpenNow:
+  enable: true
+  shulker: true
+  ender: true
+  # right/shift-right/left/shift-left/false
+  placeOpen: left
+  enderOnlyOne: true
+  lore: "Opened by {player}"
 
 # //*<!-- syntax -->*/
 # &0->Black(#000000)
