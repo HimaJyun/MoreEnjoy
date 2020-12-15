@@ -8,10 +8,7 @@ api-version: "${spigot.api-version}"
 
 commands:
   edit:
-    description: "Edit sign."
     usage: "/<command> <line> <content>"
-    permission: "moreenjoy.editsign.edit"
-    aliases: [ "editsign" ]
   moreenjoy-editsign:
     description: "reload config."
     usage: "/<command> reload"

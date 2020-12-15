@@ -1,7 +1,9 @@
 package jp.jyn.moreenjoy.utils;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Collections;
@@ -19,6 +21,16 @@ public abstract class AbstractMain<T> extends JavaPlugin {
         saveDefaultConfig();
         reloadConfig();
         instance = init();
+    }
+
+    @Override
+    public PluginCommand getCommand(String name) {
+        PluginCommand command = super.getCommand(name);
+        if (command != null) {
+            command.setPermissionMessage("[MoreEnjoy (" + this.getName() + ")] "
+                + ChatColor.RED + "You don't have permission!!");
+        }
+        return command;
     }
 
     @Override

@@ -1,25 +1,21 @@
+permission: "&cYou don't have permission!!"
+
 AnyHat:
-  enable: true
-
-NoVoid:
-  enable: true
-  exclude:
-    - "world_the_end"
-
-RideNow:
-  enable: true
-
-InfinityFirework:
   enable: true
 
 ImmutableSpawner:
   enable: true
 
-CrystalGuard:
+InfinityFirework:
   enable: true
-  damage:
-    - "world_the_end"
-  break: [ ]
+
+RideNow:
+  enable: true
+
+JoinMessage:
+  enable: true
+  join: "&e{player} joined the game"
+  quit: "&e{player} left the game"
 
 ByeByeWither:
   enable: true
@@ -27,6 +23,17 @@ ByeByeWither:
     - "world_nether"
     - "world_the_end"
   dragon:
+    - "world_the_end"
+
+CrystalGuard:
+  enable: true
+  damage:
+    - "world_the_end"
+  break: [ ]
+
+NoVoid:
+  enable: true
+  exclude:
     - "world_the_end"
 
 MoreColor:
@@ -44,19 +51,33 @@ EditSign:
   # Suitable for coexistence with plugins with protection features.
   safety: true
 
-JoinMessage:
-  enable: true
-  join: "&e{player} joined the game"
-  quit: "&e{player} left the game"
-
 DocklessVehicle:
   enable: true
-  boat: player # always(true)/player(no-player)/empty(only-empty)/first(is-first)/false
+  # always(true)/player(no-player)/empty(only-empty)/first(is-first)/false
+  boat: player
   minecart: true
   sendToInventory: true
   ready: "Please right-click vehicle."
   stop: "Automatic collection has been stopped."
   start: "Automatic collection has been restarted."
+
+LoreBook:
+  enable: true
+  notEnough: "&cNot enough experience points!"
+  onlyDurable: false
+  # Due to Bukkit restrictions, the required experience points will not be displayed on the anvil.
+  experience: 0
+  maxLength: 24
+  maxLine: 12
+
+OpenNow:
+  enable: true
+  shulker: true
+  ender: true
+  # right/shift-right/left/shift-left/false
+  placeOpen: left
+  enderOnlyOne: true
+  lore: "Opened by {player}"
 
 ThisWorld:
   enable: true
@@ -87,24 +108,6 @@ ThisWorld:
       title: "&8The End"
       subtitle: "&kworld_the_end"
       actionbar: "vs EnderDragon"
-
-LoreBook:
-  enable: true
-  notEnough: "&cNot enough experience points!"
-  onlyDurable: false
-  # Due to Bukkit restrictions, the required experience points will not be displayed on the anvil.
-  experience: 0
-  maxLength: 24
-  maxLine: 12
-
-OpenNow:
-  enable: true
-  shulker: true
-  ender: true
-  # right/shift-right/left/shift-left/false
-  placeOpen: left
-  enderOnlyOne: true
-  lore: "Opened by {player}"
 
 # //*<!-- syntax -->*/
 # &0->Black(#000000)

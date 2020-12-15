@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RideNow implements TabCompleter, Listener {
-    private final static String PREFIX = "[MoreEnjoy (RideNow)] ";
+    public final static String PREFIX = "[MoreEnjoy (RideNow)] ";
 
     private final Plugin plugin;
     private final PluginCommand boat;
@@ -43,12 +43,13 @@ public class RideNow implements TabCompleter, Listener {
 
         this.key = new NamespacedKey(plugin, "ridenow");
 
-        boat.setExecutor((s, c, l, a) ->
-            checkPermission(s, "moreenjoy.ridenow.boat") || ride((Player) s, EntityType.BOAT)
-        );
-        minecart.setExecutor((s, c, l, a) ->
-            checkPermission(s, "moreenjoy.ridenow.minecart") || ride((Player) s, EntityType.MINECART)
-        );
+        boat.setPermission("moreenjoy.ridenow.boat");
+        minecart.setPermission("moreenjoy.ridenow.minecart");
+        boat.setDescription("Ride boat.");
+        minecart.setDescription("Ride minecart.");
+
+        boat.setExecutor((s, c, l, a) -> isServer(s) || ride((Player) s, EntityType.BOAT));
+        minecart.setExecutor((s, c, l, a) -> isServer(s) || ride((Player) s, EntityType.MINECART));
         boat.setTabCompleter(this);
         minecart.setTabCompleter(this);
     }
@@ -67,15 +68,13 @@ public class RideNow implements TabCompleter, Listener {
         HandlerList.unregisterAll(this);
     }
 
-    private boolean checkPermission(CommandSender sender, String permission) {
-        if (!(sender instanceof Player)) {
+    private boolean isServer(CommandSender sender) {
+        if (sender instanceof Player) {
+            return false;
+        } else {
             sender.sendMessage(PREFIX + ChatColor.RED + "This command can only be run by players.");
             return true;
-        } else if (!sender.hasPermission(permission)) {
-            sender.sendMessage(PREFIX + ChatColor.RED + "You don't have permission!");
-            return true;
         }
-        return false;
     }
 
     private boolean ride(Player player, EntityType type) {

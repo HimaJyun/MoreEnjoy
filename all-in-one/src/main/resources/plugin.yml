@@ -7,62 +7,68 @@ description: "${project.description}"
 api-version: "${spigot.api-version}"
 
 commands:
-  hat:
-    description: "Wear everything on your head."
+  # all-in-one
+  moreenjoy-reload:
+    description: "reload config."
     usage: "/<command>"
+    permission: "moreenjoy.reload"
+  # AnyHat
+  hat:
+    usage: "/<command>"
+  # EditSign
+  edit:
+    usage: "/<command> <line> <content>"
+  # DocklessVehicle
+  dockless:
+    usage: "/<command> [true/false]"
+  # RideNow
   boat:
-    description: "Ride boat."
     usage: "/<command>"
   minecart:
-    description: "Ride minecart."
     usage: "/<command>"
-  edit:
-    description: "Edit sign."
-    usage: "/<command> <line> <content>"
-  dockless:
-    description: "Stop automatic collection."
-    usage: "/<command> [true/false]"
+  # ThisWorld
   thisworld:
-    description: "Show this world title."
     usage: "/<command>"
 
 permissions:
   moreenjoy.*:
     default: false
     children:
+      moreenjoy.reload: true
       moreenjoy.anyhat.hat: true
+      moreenjoy.byebyewither.dragon: true
+      moreenjoy.docklessvehicle.dock: true
+      moreenjoy.editsign.edit: true
+      moreenjoy.immutablespawner.allow: true
+      moreenjoy.lorebook.use: true
       moreenjoy.ridenow.minecart: true
       moreenjoy.ridenow.boat: true
-      moreenjoy.immutablespawner.allow: true
-      moreenjoy.byebyewither.dragon: true
-      moreenjoy.editsign.edit: true
-      moreenjoy.docklessvehicle.dock: true
       moreenjoy.thisworld.show: true
-      moreenjoy.lorebook.use: true
+  moreenjoy.reload:
+    default: op
   # AnyHat
   moreenjoy.anyhat.hat:
-    description: "Allow use of /hat command."
+    default: true
+  # ByeByeWither
+  moreenjoy.byebyewither.dragon:
+    default: op
+  # DocklessVehicle
+  moreenjoy.docklessvehicle.dock:
+    default: true
+  # EditSign
+  moreenjoy.editsign.edit:
+    default: true
+  # ImmutableSpawner
+  moreenjoy.immutablespawner.allow:
+    default: op
+  # LoreBook
+  moreenjoy.lorebook.use:
     default: true
   # RideNow
   moreenjoy.ridenow.minecart:
     default: true
   moreenjoy.ridenow.boat:
     default: true
-  # ImmutableSpawner
-  moreenjoy.immutablespawner.allow:
-    default: op
-  # ByeByeWither
-  moreenjoy.byebyewither.dragon:
-    default: op
-  # EditSign
-  moreenjoy.editsign.edit:
-    default: true
-  # DocklessVehicle
-  moreenjoy.docklessvehicle.dock:
-    default: true
   # ThisWorld
   moreenjoy.thisworld.show:
-    default: true
-  # LoreBook
-  moreenjoy.lorebook.use:
     default: true

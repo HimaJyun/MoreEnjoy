@@ -5,8 +5,6 @@ import org.bukkit.ChatColor;
 public class ColorConverter {
     private ColorConverter() {}
 
-    // TODO: 汚い
-
     public static String convert(String str) {
         switch (str.length()) {
             case 0:
@@ -15,7 +13,7 @@ public class ColorConverter {
                 return str;
         }
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(str.length());
 
         for (int i = 0, l = str.length(); i < l; i++) {
             char c = str.charAt(i);
@@ -31,7 +29,7 @@ public class ColorConverter {
                     }
 
                     if ((i - 1) >= 0 && str.charAt(i - 1) == '&') { // エスケープ
-                        sb.deleteCharAt(sb.length() - 1);
+                        sb.setLength(sb.length() - 1);
                         break;
                     }
 
@@ -53,6 +51,11 @@ public class ColorConverter {
                     }
                     // 3桁は確定
 
+                    if ((i - 1) >= 0 && str.charAt(i - 1) == '&') { // エスケープ
+                        sb.setLength(sb.length() - 1);
+                        break;
+                    }
+
                     if (i + 6 < l) { // 6桁チェック
                         char g2 = str.charAt(i + 4), b1 = str.charAt(i + 5), b2 = str.charAt(i + 6);
                         if (isHex(g2) && isHex(b1) && isHex(b2)) {
@@ -64,11 +67,6 @@ public class ColorConverter {
                             bb = b2;
                             j = 6;
                         }
-                    }
-
-                    if ((i - 1) >= 0 && str.charAt(i - 1) == '&') { // エスケープ
-                        sb.deleteCharAt(sb.length() - 1);
-                        break;
                     }
 
                     sb.append(ChatColor.COLOR_CHAR).append('x');

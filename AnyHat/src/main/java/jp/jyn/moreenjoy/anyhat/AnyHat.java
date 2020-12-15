@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class AnyHat implements TabExecutor {
-    private final static String PREFIX = "[MoreEnjoy (AnyHat)] ";
+    public final static String PREFIX = "[MoreEnjoy (AnyHat)] ";
 
     private final Plugin plugin;
     private final PluginCommand command;
@@ -26,6 +26,10 @@ public class AnyHat implements TabExecutor {
 
     public static AnyHat onEnable(Plugin plugin, PluginCommand command) {
         AnyHat instance = new AnyHat(plugin, command);
+        command.setPermission("moreenjoy.anyhat.hat");
+        command.setDescription("Wear everything on your head.");
+        command.setAliases(Collections.singletonList("anyhat"));
+
         command.setExecutor(instance);
         command.setTabCompleter(instance);
         return instance;
@@ -40,10 +44,6 @@ public class AnyHat implements TabExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
             sender.sendMessage(PREFIX + ChatColor.RED + "This command can only be run by players.");
-            return true;
-        }
-        if (!sender.hasPermission("moreenjoy.anyhat.hat")) {
-            sender.sendMessage(PREFIX + ChatColor.RED + "You don't have permission!");
             return true;
         }
 

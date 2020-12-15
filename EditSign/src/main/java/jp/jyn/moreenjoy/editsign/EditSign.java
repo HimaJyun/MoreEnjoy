@@ -32,7 +32,7 @@ import java.util.UUID;
 import java.util.regex.Pattern;
 
 public class EditSign implements Listener, TabExecutor {
-    private final static String PREFIX = "[MoreEnjoy (EditSign)] ";
+    public final static String PREFIX = "[MoreEnjoy (EditSign)] ";
     private final static String VARIABLE = "\\{\\s*value\\s*}";
 
     private final Plugin plugin;
@@ -48,6 +48,9 @@ public class EditSign implements Listener, TabExecutor {
     private EditSign(Plugin plugin, ConfigurationSection config, PluginCommand command) {
         this.plugin = plugin;
         this.command = command;
+        this.command.setPermission("moreenjoy.editsign.edit");
+        this.command.setDescription("Edit sign.");
+        this.command.setAliases(Collections.singletonList("editsign"));
 
         Pattern v = Pattern.compile(VARIABLE);
         String e = config.getString("error");
@@ -123,10 +126,6 @@ public class EditSign implements Listener, TabExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
             sender.sendMessage(PREFIX + ChatColor.RED + "This command can only be run by players.");
-            return true;
-        }
-        if (!sender.hasPermission("moreenjoy.editsign.edit")) {
-            sender.sendMessage(PREFIX + ChatColor.RED + "You don't have permission!");
             return true;
         }
 

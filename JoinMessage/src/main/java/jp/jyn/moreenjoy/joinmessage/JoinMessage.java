@@ -20,10 +20,9 @@ public class JoinMessage implements Listener {
 
     private JoinMessage(ConfigurationSection config) {
         final Pattern regex = Pattern.compile(PATTERN);
-        String s = config.getString("join", null);
-        join = s == null ? null : regex.split(ColorConverter.convert(s), -1);
-        s = config.getString("quit", null);
-        quit = s == null ? null : regex.split(ColorConverter.convert(s), -1);
+        String s;
+        join = (s = config.getString("join", null)) == null ? null : regex.split(ColorConverter.convert(s), -1);
+        quit = (s = config.getString("quit", null)) == null ? null : regex.split(ColorConverter.convert(s), -1);
     }
 
     public static JoinMessage onEnable(Plugin plugin, ConfigurationSection config) {

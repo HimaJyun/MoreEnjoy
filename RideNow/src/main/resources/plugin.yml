@@ -7,15 +7,11 @@ description: "${project.description}"
 api-version: "${spigot.api-version}"
 
 commands:
-  boat:
-    description: "Ride boat."
-    usage: "/<command>"
-  minecart:
-    description: "Ride minecart."
-    usage: "/<command>"
+  boat: { usage: "/<command>" }
+  minecart: { usage: "/<command>" }
 
 permissions:
-  moreenjoy.*:
+  moreenjoy.ridenow.*:
     default: false
     children:
       moreenjoy.ridenow.minecart: true

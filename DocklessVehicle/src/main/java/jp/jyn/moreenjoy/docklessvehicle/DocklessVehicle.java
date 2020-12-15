@@ -1,6 +1,7 @@
 package jp.jyn.moreenjoy.docklessvehicle;
 
 import jp.jyn.moreenjoy.utils.ColorConverter;
+import jp.jyn.moreenjoy.utils.PersistentMoreType;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -27,7 +28,6 @@ import org.bukkit.event.vehicle.VehicleExitEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataContainer;
-import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.Plugin;
 
 import java.util.Collections;
@@ -148,7 +148,11 @@ public class DocklessVehicle implements Listener, TabExecutor {
         if (!instance.minecart) {
             VehicleDestroyEvent.getHandlerList().unregister(instance);
         }
+
+        command.setDescription("Stop automatic collection.");
+        command.setPermission("moreenjoy.docklessvehicle.dock");
         command.setExecutor(instance);
+        command.setTabCompleter(instance);
         return instance;
     }
 
@@ -247,7 +251,7 @@ public class DocklessVehicle implements Listener, TabExecutor {
     }
 
     private boolean isPersistent(Entity entity) {
-        return entity.getPersistentDataContainer().has(persistentKey, PersistentDataType.BYTE);
+        return entity.getPersistentDataContainer().has(persistentKey, PersistentMoreType.BOOLEAN);
     }
 
     @Override
@@ -256,13 +260,9 @@ public class DocklessVehicle implements Listener, TabExecutor {
             sender.sendMessage(PREFIX + ChatColor.RED + "This command can only be run by players.");
             return true;
         }
-        if (!sender.hasPermission("moreenjoy.docklessvehicle.dock")) {
-            sender.sendMessage(PREFIX + ChatColor.RED + "You don't have permission!");
-            return true;
-        }
 
         Function<PersistentDataContainer, Boolean> operator = args.length == 0
-            ? meta -> meta.has(persistentKey, PersistentDataType.BYTE) ? setPersist(meta) : removePersist(meta)
+            ? meta -> meta.has(persistentKey, PersistentMoreType.BOOLEAN) ? setPersist(meta) : removePersist(meta)
             : args[0].equalsIgnoreCase("true") ? this::setPersist
             : args[0].equalsIgnoreCase("false") ? this::removePersist
             : null;
@@ -277,7 +277,7 @@ public class DocklessVehicle implements Listener, TabExecutor {
     }
 
     private boolean setPersist(PersistentDataContainer meta) {
-        meta.set(persistentKey, PersistentDataType.BYTE, (byte) 1);
+        meta.set(persistentKey, PersistentMoreType.BOOLEAN, Boolean.TRUE);
         return true;
     }
 

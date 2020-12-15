@@ -1,6 +1,7 @@
 package jp.jyn.moreenjoy.opennow;
 
 import jp.jyn.moreenjoy.utils.ColorConverter;
+import jp.jyn.moreenjoy.utils.PersistentMoreType;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -183,7 +184,7 @@ public class OpenNow implements Listener {
         player.openInventory(inventory);
         setLore(meta, player);
         // フラグ付け
-        meta.getPersistentDataContainer().set(key, PersistentDataType.INTEGER_ARRAY, uuidToInts(player.getUniqueId()));
+        meta.getPersistentDataContainer().set(key, PersistentMoreType.UUID, player.getUniqueId());
         meta.setBlockState(shulker);
         item.setItemMeta(meta);
         opened.put(player.getUniqueId(), new OpenedShulker(item.getType(), inventory, from));
@@ -267,13 +268,12 @@ public class OpenNow implements Listener {
             }
 
             PersistentDataContainer data = meta.getPersistentDataContainer();
-            int[] ints = data.get(key, PersistentDataType.INTEGER_ARRAY);
-            if (ints == null) {
+            UUID uuid = data.get(key, PersistentMoreType.UUID);
+            if (uuid == null) {
                 continue;
             }
             data.remove(key);
 
-            UUID uuid = intsToUUID(ints);
             Player player = Bukkit.getPlayer(uuid);
             if (player != null) {
                 player.closeInventory();
@@ -352,7 +352,7 @@ public class OpenNow implements Listener {
     private Map.Entry<Integer, ? extends ItemStack> findOpenedShulker(HumanEntity player, Inventory inventory,
                                                                       Material material) {
         // TODO: intで返す方が良いのでは？
-        int[] uuid = uuidToInts(player.getUniqueId());
+        UUID uuid = player.getUniqueId();
         for (Map.Entry<Integer, ? extends ItemStack> entry : inventory.all(material).entrySet()) {
             ItemStack item = entry.getValue();
             ItemMeta meta = item.getItemMeta();
@@ -361,8 +361,8 @@ public class OpenNow implements Listener {
             }
 
             PersistentDataContainer data = meta.getPersistentDataContainer();
-            int[] u = data.get(key, PersistentDataType.INTEGER_ARRAY);
-            if (u != null && Arrays.equals(uuid, u)) {
+            UUID u = data.get(key, PersistentMoreType.UUID);
+            if (uuid.equals(u)) {
                 return entry;
             }
         }
@@ -375,23 +375,6 @@ public class OpenNow implements Listener {
         if (world != null) {
             world.playSound(location, sound, 1.0f, 1.0f);
         }
-    }
-
-    private int[] uuidToInts(UUID uuid) {
-        long most = uuid.getMostSignificantBits();
-        long least = uuid.getLeastSignificantBits();
-        return new int[]{
-            (int) (most >> 32),
-            (int) most,
-            (int) (least >> 32),
-            (int) least
-        };
-    }
-
-    private UUID intsToUUID(int[] ints) {
-        long most = (((long) ints[0]) << 32) | ints[1];
-        long least = (((long) ints[2]) << 32) | ints[3];
-        return new UUID(most, least);
     }
 
     private boolean isTakeAction(InventoryAction action) {

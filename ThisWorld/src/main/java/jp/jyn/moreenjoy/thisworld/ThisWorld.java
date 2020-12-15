@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ThisWorld implements TabExecutor, Listener {
-    private final static String PREFIX = "[MoreEnjoy (ThisWorld)] ";
+    public final static String PREFIX = "[MoreEnjoy (ThisWorld)] ";
 
     private final Plugin plugin;
     private final PluginCommand command;
@@ -68,6 +68,9 @@ public class ThisWorld implements TabExecutor, Listener {
     public static ThisWorld onEnable(Plugin plugin, ConfigurationSection config, PluginCommand command) {
         ThisWorld instance = new ThisWorld(plugin, config, command);
         Bukkit.getPluginManager().registerEvents(instance, plugin);
+        
+        command.setPermission("moreenjoy.thisworld.show");
+        command.setDescription("Show this world title.");
         command.setExecutor(instance);
         command.setTabCompleter(instance);
         return instance;
@@ -100,10 +103,6 @@ public class ThisWorld implements TabExecutor, Listener {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
             sender.sendMessage(PREFIX + ChatColor.RED + "This command can only be run by players.");
-            return true;
-        }
-        if (!sender.hasPermission("moreenjoy.thisworld.show")) {
-            sender.sendMessage(PREFIX + ChatColor.RED + "You don't have permission!");
             return true;
         }
 

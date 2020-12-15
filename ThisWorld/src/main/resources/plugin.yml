@@ -8,9 +8,7 @@ api-version: "${spigot.api-version}"
 
 commands:
   thisworld:
-    description: "Show this world title."
     usage: "/<command>"
-    permission: "moreenjoy.thisworld.show"
   moreenjoy-thisworld:
     description: "reload config."
     usage: "/<command> reload"

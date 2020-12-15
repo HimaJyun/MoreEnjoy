@@ -19,21 +19,21 @@
 
     <modules>
         <module>all-in-one</module>
-        <module>NoVoid</module>
-        <module>AnyHat</module>
-        <module>RideNow</module>
-        <module>InfinityFirework</module>
-        <module>ImmutableSpawner</module>
-        <module>CrystalGuard</module>
-        <module>ByeByeWither</module>
         <module>MoreUtils</module>
-        <module>MoreColor</module>
-        <module>EditSign</module>
-        <module>JoinMessage</module>
+        <module>AnyHat</module>
+        <module>ByeByeWither</module>
+        <module>CrystalGuard</module>
         <module>DocklessVehicle</module>
-        <module>ThisWorld</module>
+        <module>EditSign</module>
+        <module>ImmutableSpawner</module>
+        <module>InfinityFirework</module>
+        <module>JoinMessage</module>
         <module>LoreBook</module>
+        <module>MoreColor</module>
+        <module>NoVoid</module>
         <module>OpenNow</module>
+        <module>RideNow</module>
+        <module>ThisWorld</module>
     </modules>
 
     <developers>

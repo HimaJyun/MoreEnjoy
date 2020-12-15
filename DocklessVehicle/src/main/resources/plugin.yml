@@ -8,9 +8,7 @@ api-version: "${spigot.api-version}"
 
 commands:
   dockless:
-    description: "Stop automatic collection."
     usage: "/<command> [true/false]"
-    permission: "moreenjoy.docklessvehicle.dock"
   moreenjoy-docklessvehicle:
     description: "reload config."
     usage: "/<command> reload"
