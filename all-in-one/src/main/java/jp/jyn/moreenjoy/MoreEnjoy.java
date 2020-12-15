@@ -8,6 +8,7 @@ import jp.jyn.moreenjoy.editsign.EditSign;
 import jp.jyn.moreenjoy.immutablespawner.ImmutableSpawner;
 import jp.jyn.moreenjoy.infinityfirework.InfinityFirework;
 import jp.jyn.moreenjoy.joinmessage.JoinMessage;
+import jp.jyn.moreenjoy.lecternlock.LecternLock;
 import jp.jyn.moreenjoy.lorebook.LoreBook;
 import jp.jyn.moreenjoy.morecolor.MoreColor;
 import jp.jyn.moreenjoy.novoid.NoVoid;
@@ -97,6 +98,12 @@ public class MoreEnjoy extends JavaPlugin {
         if (config.getBoolean("JoinMessage.enable")) {
             getLogger().info("Enabling JoinMessage");
             JoinMessage instance = JoinMessage.onEnable(this, getSection("JoinMessage"));
+            destructor.add(instance::onDisable);
+        }
+
+        if (config.getBoolean("LecternLock.enable")) {
+            getLogger().info("Enabling LecternLock");
+            LecternLock instance = LecternLock.onEnable(this);
             destructor.add(instance::onDisable);
         }
 

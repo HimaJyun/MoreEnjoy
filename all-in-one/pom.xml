@@ -14,32 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>jp.jyn</groupId>
-            <artifactId>NoVoid</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
             <artifactId>AnyHat</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>RideNow</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>InfinityFirework</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>ImmutableSpawner</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>CrystalGuard</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
@@ -49,17 +24,7 @@
         </dependency>
         <dependency>
             <groupId>jp.jyn</groupId>
-            <artifactId>MoreColor</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>EditSign</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>jp.jyn</groupId>
-            <artifactId>JoinMessage</artifactId>
+            <artifactId>CrystalGuard</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
@@ -69,7 +34,27 @@
         </dependency>
         <dependency>
             <groupId>jp.jyn</groupId>
-            <artifactId>ThisWorld</artifactId>
+            <artifactId>EditSign</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>ImmutableSpawner</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>InfinityFirework</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>JoinMessage</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>LecternLock</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
@@ -79,7 +64,27 @@
         </dependency>
         <dependency>
             <groupId>jp.jyn</groupId>
+            <artifactId>MoreColor</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>NoVoid</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
             <artifactId>OpenNow</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>RideNow</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.jyn</groupId>
+            <artifactId>ThisWorld</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>

@@ -9,6 +9,9 @@ ImmutableSpawner:
 InfinityFirework:
   enable: true
 
+LecternLock:
+  enable: true
+
 RideNow:
   enable: true
 

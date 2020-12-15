@@ -1,0 +1,11 @@
+main: "jp.jyn.moreenjoy.lecternlock.Main"
+name: "LecternLock"
+version: "${project.version}"
+website: "${project.parent.url}"
+author: "HimaJyun( https://jyn.jp/ )"
+description: "${project.description}"
+api-version: "${spigot.api-version}"
+
+permissions:
+  moreenjoy.lecternlock.passthrough:
+    default: op

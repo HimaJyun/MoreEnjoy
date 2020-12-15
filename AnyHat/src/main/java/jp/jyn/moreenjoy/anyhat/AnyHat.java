@@ -28,7 +28,6 @@ public class AnyHat implements TabExecutor {
         AnyHat instance = new AnyHat(plugin, command);
         command.setPermission("moreenjoy.anyhat.hat");
         command.setDescription("Wear everything on your head.");
-        command.setAliases(Collections.singletonList("anyhat"));
 
         command.setExecutor(instance);
         command.setTabCompleter(instance);

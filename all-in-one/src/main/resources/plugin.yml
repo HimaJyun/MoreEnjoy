@@ -40,6 +40,7 @@ permissions:
       moreenjoy.docklessvehicle.dock: true
       moreenjoy.editsign.edit: true
       moreenjoy.immutablespawner.allow: true
+      moreenjoy.lecternlock.passthrough: true
       moreenjoy.lorebook.use: true
       moreenjoy.ridenow.minecart: true
       moreenjoy.ridenow.boat: true
@@ -60,6 +61,9 @@ permissions:
     default: true
   # ImmutableSpawner
   moreenjoy.immutablespawner.allow:
+    default: op
+  # LecternLock
+  moreenjoy.lecternlock.passthrough:
     default: op
   # LoreBook
   moreenjoy.lorebook.use:

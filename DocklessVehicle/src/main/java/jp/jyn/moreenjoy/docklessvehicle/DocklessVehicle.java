@@ -262,7 +262,7 @@ public class DocklessVehicle implements Listener, TabExecutor {
         }
 
         Function<PersistentDataContainer, Boolean> operator = args.length == 0
-            ? meta -> meta.has(persistentKey, PersistentMoreType.BOOLEAN) ? setPersist(meta) : removePersist(meta)
+            ? meta -> meta.has(persistentKey, PersistentMoreType.BOOLEAN) ? removePersist(meta) : setPersist(meta)
             : args[0].equalsIgnoreCase("true") ? this::setPersist
             : args[0].equalsIgnoreCase("false") ? this::removePersist
             : null;

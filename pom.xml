@@ -28,6 +28,7 @@
         <module>ImmutableSpawner</module>
         <module>InfinityFirework</module>
         <module>JoinMessage</module>
+        <module>LecternLock</module>
         <module>LoreBook</module>
         <module>MoreColor</module>
         <module>NoVoid</module>

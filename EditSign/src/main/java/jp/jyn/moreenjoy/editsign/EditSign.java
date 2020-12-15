@@ -50,7 +50,6 @@ public class EditSign implements Listener, TabExecutor {
         this.command = command;
         this.command.setPermission("moreenjoy.editsign.edit");
         this.command.setDescription("Edit sign.");
-        this.command.setAliases(Collections.singletonList("editsign"));
 
         Pattern v = Pattern.compile(VARIABLE);
         String e = config.getString("error");
